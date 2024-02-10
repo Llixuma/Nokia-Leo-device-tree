@@ -1,3 +1,14 @@
+LOCAL_PATH := device/nokia/leo
+
+SRC_MEDIA_HAL_DIR := hardware/qcom/media/msm8909
+SRC_DISPLAY_HAL_DIR := hardware/qcom/display/msm8909
+SRC_CAMERA_HAL_DIR := hardware/qcom/camera/msm8909
+
+TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
+
+# this fixes build stopping because of missing header files
+$(call inherit-product, hardware/qcom/msm8x09/msm8x09.mk)
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
   LOCAL_KERNEL := device/nokia/leo-kernel/zImage-dtb
 else
@@ -24,3 +35,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_AAPT_CONFIG := ldpi mdpi tvdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
+
+# disable treble?
+PRODUCT_FULL_TREBLE_OVERRIDE := false
+
+MSM_VIDC_TARGET_LIST := msm8909 # Get the color format from kernel headers
+MASTER_SIDE_CP_TARGET_LIST := msm8909 # ION specific settings
+
+PRODUCT_COPY_FILES += \
+    device/nokia/leo/fstab.qcom:$(TARGET_COPY_OUT_ROOT)/fstab.qcom
