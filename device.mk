@@ -23,12 +23,15 @@ BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 # TARGET_KERNEL_CONFIG := LEO-perf_defconfig
 
 # TARGET_KERNEL_SOURCE := kernel/msm-4.9
+# Copy fstab and qcom boot files
 PRODUCT_COPY_FILES += \
+    device/nokia/leo/fstab.qcom:root/fstab.qcom \
     device/nokia/leo/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
     device/nokia/leo/rootdir/etc/init.qcom.factory.rc:root/init.qcom.factory.rc \
     device/nokia/leo/rootdir/etc/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    device/nokia/leo/rootdir/etc/init.target.rc:root/ueventd.fugu.rc \
-    device/nokia/leo/rootdir/etc/init.recovery.qcom.rc:root/init.recovery.qcom.rc
+    device/nokia/leo/rootdir/etc/init.target.rc:root/ueventd.target.rc \
+    device/nokia/leo/rootdir/etc/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+    device/nokia/leo/rootdir/etc/init.qcom.rc:root/init.trace.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=160
@@ -41,6 +44,3 @@ PRODUCT_FULL_TREBLE_OVERRIDE := false
 
 MSM_VIDC_TARGET_LIST := msm8909 # Get the color format from kernel headers
 MASTER_SIDE_CP_TARGET_LIST := msm8909 # ION specific settings
-
-PRODUCT_COPY_FILES += \
-    device/nokia/leo/fstab.qcom:$(TARGET_COPY_OUT_ROOT)/fstab.qcom
