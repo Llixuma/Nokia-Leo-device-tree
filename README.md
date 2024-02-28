@@ -14,7 +14,7 @@ A Work-In-Progress AOSP (Marshmallow) device tree for the Nokia 6300 4G
 i updated the proprietary-files.txt to exclude anything from the b2g folder so it shouldn't throw any more errors.
 
 #### Building in Docker:
-+ use Googles Docker image to build AOSP Oreo for best chances of success: https://android.googlesource.com/platform/build/+/main/tools/docker/
++ use Googles Docker image to build old versions of AOSP for best chances of success: https://android.googlesource.com/platform/build/+/main/tools/docker/
 
 + **you have to use Googles repo tool to pull AOSP ouside of docker, because the docker image uses python 2.7.4 as default, which the repo tool does not support anymore**
 
