@@ -26,15 +26,19 @@ BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 # Copy fstab and qcom boot files
 PRODUCT_COPY_FILES += \
     device/nokia/leo/fstab.qcom:root/fstab.qcom \
-    device/nokia/leo/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
-    device/nokia/leo/rootdir/etc/init.qcom.factory.rc:root/init.qcom.factory.rc \
-    device/nokia/leo/rootdir/etc/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    device/nokia/leo/rootdir/etc/init.target.rc:root/ueventd.target.rc \
-    device/nokia/leo/rootdir/etc/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
-    device/nokia/leo/rootdir/etc/init.qcom.rc:root/init.trace.rc
+#    device/nokia/leo/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
+#    device/nokia/leo/rootdir/etc/init.qcom.factory.rc:root/init.qcom.factory.rc \
+#    device/nokia/leo/rootdir/etc/init.qcom.usb.rc:root/init.qcom.usb.rc \
+#    device/nokia/leo/rootdir/etc/init.target.rc:root/ueventd.target.rc \
+#    device/nokia/leo/rootdir/etc/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+#    device/nokia/leo/rootdir/etc/init.qcom.rc:root/init.trace.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=160
+    ro.sf.lcd_density=160 \
+    ro.config.low_ram=true \
+    ro.logd.size=64K
+
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.jit.codecachesize=0
 
 PRODUCT_AAPT_CONFIG := ldpi mdpi tvdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
