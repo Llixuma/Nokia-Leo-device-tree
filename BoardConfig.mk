@@ -48,6 +48,7 @@ BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci
 BOARD_KERNEL_CMDLINE += earlyprintk earlycon=msm_hsl_uart,0x78B0000
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive enforcing=0
+BOARD_KERNEL_CMDLINE += androidboot.dm_verity=disabled
 
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
