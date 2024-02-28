@@ -1,4 +1,3 @@
-@@ -0,0 +1,48 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
